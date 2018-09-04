@@ -11,11 +11,13 @@
 ### Installing Dependencies:
 Ensure the following are installed on the machine you are running the application on:
 - Python 2.7 with Pip
-- Virtualenv for Python 2.7
+- virtualenv for Python 2.7
 
-Create a virtualenv and install the requirements from <i>requirements.txt</i> with Pip
+Create a virtualenv and install the requirements from <i>requirements.txt</i> with pip:
 ```
-$ pip install -r "requirements.txt"
+$ virtualenv venv
+$ source venv/bin/activate
+(venv)$ pip install -r "requirements.txt"
 ``` 
 
 ### Reading Spreadsheets:
@@ -31,6 +33,7 @@ Row and column indices begin at 1.
 ```
 >>> print sheet.read_row(row=1, start_col=1)
 {u'Row 1': [u'Row', u'Text']}
+
 >>> print sheet.read_column(col=1, header=True, start_row=1)
 {u'Row': [u'Column', u'Text']}
 ```
@@ -47,6 +50,7 @@ a concurrent cell.
 ```
 >>> sheet.write_row(row=1, content=['These', 'Are', 'Headers'], start_col=1, bold=True, italics=False) 
 # Writes These, Are, and Headers in bold to the top three cells horizontally in bold.
+
 >>> sheet.write_column(col=1, content=['Here', 'Are', 'Values'], start_row=2, bold=False, italics=True) 
 # Writes Here, Are, and Values in italics to three columns under the 'These' heading.
 ```
@@ -58,6 +62,7 @@ a concurrent cell.
 ```
 >>> sheet.append_row(row=1, content=['More', 'Up', 'Top'], bold=True, italics=False) 
 # Writes More, Up, and Top in bold after 'Headers.'
+
 >>> sheet.append_column(col=1, content=['More', 'In', 'Col'], bold=False, italics=True) 
 # Writes More, In, and Col in italics to three columns under 'Values.'
 ```
@@ -70,5 +75,5 @@ when they are written to.
 # Saves the sheet
 ```
 
-## Files
+## Files:
 - <i>Spreadsheet.py</i> - Class for reading and writing to spreadsheets.
