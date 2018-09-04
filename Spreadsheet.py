@@ -21,7 +21,8 @@ class Spreadsheet(object):
             @load - Load the file if true, create it if false """
 
         # Add extension
-        if filename[-5:-1:] != ".xlsx":
+        if filename[-5::] != ".xlsx":
+            print filename[-5::]
             filename += ".xlsx"
 
         self.filename = filename
